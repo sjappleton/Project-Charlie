@@ -1,0 +1,62 @@
+
+<Gui>
+    orientation: 'vertical'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 20
+        padding: 20
+        size_hint: 1, 0.5
+
+
+        Label:
+            id: TempLabel
+            text: str(root.boilertemp1) + '\u00b0' + "C"
+            font_size: 150
+
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 30
+        padding: 20
+        size_hint: 1,.25
+
+        ToggleButton:
+            id: powerbutton
+            on_state: root.power_mode(*args)
+            Image:
+                source: 'off.png'
+                pos: self.parent.pos
+                size: self.parent.size
+
+        ToggleButton:
+            id: steambutton
+            on_state: root.steam_mode(*args)
+            Image:
+                source: 'steam.png'
+                pos: self.parent.pos
+                size: self.parent.size
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 20
+        padding: 20
+        size_hint: 1,.25
+
+        Label:
+            id: stopwatch
+            text: str(root.pump_watch1)
+            font_name: 'Roboto-Bold.ttf'
+            font_size: 60
+            markup: True
+
+        ToggleButton:
+            id: pump
+            on_state: root.pump_on(*args)
+
+
+            Image:
+                source: 'portafilter.png'
+                pos: self.parent.pos
+                size: self.parent.size
+
